@@ -1,54 +1,99 @@
-.list {
-  display: grid;
-  margin: 0;
-  /* https://css-tricks.com/responsive-layouts-fewer-media-queries/ */
-  --w: 280px;
-  --n: 2;
-  gap: var(--size-gap);
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(max(var(--w), 100%/ (var(--n) + 1) + 0.1%), 1fr)
-  );
-  margin-bottom: var(--size-gap);
-  margin-top: var(--size-gap);
+
+.sectionWrapper {
+  padding: 4rem 2rem;
+  background-color: #f5f5f5;
 }
 
-.listItem {
-  margin: 0;
+.sectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
-.listItem::marker {
-  color: #e95800;
+.sectionItem {
+  flex-basis: calc(50% - 1rem);
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-.listItem:nth-child(2)::marker {
-  color: #159bf3;
+.sectionButton {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid #333; 
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
-.listItem:nth-child(3)::marker {
-  color: #8eb814;
+.sectionButton:hover {
+  background-color: #555;
 }
 
-.listItem:nth-child(4)::marker {
-  color: #663399;
+@media (max-width: 768px) {
+  .sectionContainer {
+    flex-direction: column;
+  }
+
+  .sectionItem {
+    flex-basis: auto;
+  }
+}
+.sectionImage {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.listItemLink {
-  color: var(--color-primary);
-  font-weight: bold;
-}
-
-.listItemDescription {
-  color: var(--color-text);
-  margin-bottom: 0;
-  margin-top: var(--space-1);
-}
-
-.textCenter {
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
   text-align: center;
 }
 
-.intro {
-  max-width: none;
-  line-height: var(--line-height-loose);
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 16px;
+}
+
+.socialIcon {
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.socialIcon:hover {
+  color: #ccc;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }

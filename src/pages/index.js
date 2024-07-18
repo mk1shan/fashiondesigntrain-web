@@ -1,128 +1,137 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-
-import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Navbar from "../components/navbar"
+import Header from "../components/header"
+import Carousel from "../components/carousel"
 import * as styles from "../components/index.module.css"
+import { StaticImage } from "gatsby-plugin-image"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-  },
-  {
-    text: "Examples",
-    url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
-    description:
-      "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Learn how to add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-  },
-]
+const IndexPage = () => {
+  const [navbarOpen, setNavbarOpen] = React.useState(false);
 
-const samplePageLinks = [
-  {
-    text: "Page 2",
-    url: "page-2",
-    badge: false,
-    description:
-      "A simple example of linking to another page within a Gatsby site",
-  },
-  { text: "TypeScript", url: "using-typescript" },
-  { text: "Server Side Rendering", url: "using-ssr" },
-  { text: "Deferred Static Generation", url: "using-dsg" },
-]
+  const toggleNavbar = () => {
+    setNavbarOpen(!navbarOpen);
+  };
 
-const moreLinks = [
-  { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
-  {
-    text: "Documentation",
-    url: "https://gatsbyjs.com/docs/",
-  },
-  {
-    text: "Starters",
-    url: "https://gatsbyjs.com/starters/",
-  },
-  {
-    text: "Showcase",
-    url: "https://gatsbyjs.com/showcase/",
-  },
-  {
-    text: "Contributing",
-    url: "https://www.gatsbyjs.com/contributing/",
-  },
-  { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
-]
+  return (
+    <>
+      <Seo title="Home" />
+      <Navbar navbarOpen={navbarOpen} toggleNavbar={toggleNavbar} />
+      <Header />
+      <Carousel />
+      <div className="container">
+        <div className="card bg-white border-0">
+          <div className="card-title text-center my-3 font-italic" style={{ fontFamily: 'Satisfy, cursive', fontSize: '1.5rem' }}>We make your dream dress a reality.</div>
+          <div className={styles.sectionContainer}>
+            <div className={styles.sectionItem}>
+              <div className="card-title text-center text-uppercase">Wedding Frocks</div>
+              <p className="card-text font-weight-light">
+                Designed to brighten the most important day of your life, our wedding frocks simply adorn you.
+              </p>
+              <a href="/wedding-frocks" className={styles.sectionButton}>VIEW COLLECTION</a>
+              <p></p>
+              <StaticImage
+                src="../images/1.jpg"
+                alt="Wedding Frock"
+                className={styles.sectionImage}
+              />
+            </div>
+            <div className={styles.sectionItem}>
+              <div className="card-title text-center text-uppercase">Home Coming Frocks</div>
+              <p className="card-text font-weight-light">
+                Each frock tells a unique story. What would you like yours to say?
+              </p>
+              <a href="/home-coming-frocks" className={styles.sectionButton}>VIEW COLLECTION</a>
+              <p></p>
+              <StaticImage
+                src="../images/2.jpg"
+                alt="Wedding Frock"
+                className={styles.sectionImage}
+              />
+            </div>
+            <div className={styles.sectionItem}>
+              <div className="card-title text-center text-uppercase">Frocks for Going Aways</div>
+              <p className="card-text font-weight-light">Leave your old life behind in style.</p>
+              <a href="/home-coming-frocks" className={styles.sectionButton}>VIEW COLLECTION</a>
+              <p></p>
+              <StaticImage
+                src="../images/3.jpg"
+                alt="Wedding Frock"
+                className={styles.sectionImage}
+              />
+            </div>
+            <div className={styles.sectionItem}>
+              <div className="card-title text-center text-uppercase">Pre-shoot Dresses</div>
+              <p className="card-text font-weight-light">
+                Add colour to your photos with our pre-shoot dress collection.
+              </p>
+              <a href="/home-coming-frocks" className={styles.sectionButton}>VIEW COLLECTION</a>
+              <p></p>
+              <StaticImage
+                src="../images/4.jpg"
+                alt="Wedding Frock"
+                className={styles.sectionImage}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+      <footer className="footer bg-dark mt-auto">
+        <div className="container py-4">
+          <div className="row text-center">
+            <div className="col">
+              <a className="nav-link text-white" href="http://www.maxifashionhouse.com">Home</a>
+            </div>
+            <div className="col">
+              <a className="nav-link text-white" href="http://www.maxifashionhouse.com/gallery">Gallery</a>
+            </div>
+            <div className="col">
+              <a className="nav-link text-white" href="http://www.maxifashionhouse.com/wedding-frocks">Wedding</a>
+            </div>
+            <div className="col">
+              <a className="nav-link text-white" href="http://www.maxifashionhouse.com/home-coming-frocks">Home Coming</a>
+            </div>
+            <div className="col">
+              <a className="nav-link text-white" href="http://www.maxifashionhouse.com/going-away-frocks">Going Away</a>
+            </div>
+            <div className="col">
+              <a className="nav-link text-white" href="http://www.maxifashionhouse.com/pre-shoot-dresses">Pre-shoot</a>
+            </div>
+            <div className="col">
+              <a className="nav-link text-white" href="http://www.maxifashionhouse.com/contact-us">Contact Us</a>
+            </div>
+          </div>
+          <div className="row text-center my-2">
+            <div className="col-sm-12 text-center text-white">
+              <img src="../images/favicon-32x32.jpg" alt="Maxi Fashion House" />
+            </div>
+            <div className="col-sm-12" style={{ color: 'darkgray' }}>
+              Equipped to serve the most distinctive tastes, we provide bridal dresses for all occasions to make your special moments even more memorable.
+            </div>
+          </div>
+          <div className="row text-center my-2">
+            <div className="col">
+              <a href="https://www.facebook.com/maxifashionhouse/" target="_blank" rel="noopener noreferrer" className="no-text-decor" style={{ color: 'darkgray' }}>
+                <FontAwesomeIcon icon={faFacebook} className="mx-2" size="lg" />
+              </a>
+              <FontAwesomeIcon icon={faTwitter} className="mx-2" size="lg" style={{ color: 'darkgray' }} />
+            </div>
+          </div>
+          <div className="row my-2">
+            <div className="col-sm-12 text-center" style={{ color: 'darkgray' }}>
+              <p style={{ color: 'darkgray' }}>© 2024 Maxi Fashion House. All rights reserved.<br /></p>
+              <hr style={{ borderTop: '1px solid darkgray', filter: 'drop-shadow(0px 0px 3px white)' }} />
+              Designed &amp; developed by <a href="https://www.chanukawijayakoon.me" target="_blank">merovingienne</a>.
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
+}
 
-const IndexPage = () => (
-  <Layout>
-    <div className={styles.textCenter}>
-      <StaticImage
-        src="../images/example.png"
-        loading="eager"
-        width={64}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt=""
-        style={{ marginBottom: `var(--space-3)` }}
-      />
-      <h1>
-        Welcome to <b>Gatsby!</b>
-      </h1>
-      <p className={styles.intro}>
-        <b>Example pages:</b>{" "}
-        {samplePageLinks.map((link, i) => (
-          <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
-          </React.Fragment>
-        ))}
-        <br />
-        Edit <code>src/pages/index.js</code> to update this page.
-      </p>
-    </div>
-    <ul className={styles.list}>
-      {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
-            {link.text} ↗
-          </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
-        </li>
-      ))}
-    </ul>
-    {moreLinks.map((link, i) => (
-      <React.Fragment key={link.url}>
-        <a href={`${link.url}${utmParameters}`}>{link.text}</a>
-        {i !== moreLinks.length - 1 && <> · </>}
-      </React.Fragment>
-    ))}
-  </Layout>
-)
-
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="Home" />
-
-export default IndexPage
+export default IndexPage;
